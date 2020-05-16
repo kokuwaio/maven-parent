@@ -364,6 +364,12 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>${version.org.codehaus.mojo.versions}</version>
+					<configuration>
+						<processDependencyManagement>true</processDependencyManagement>
+						<processDependencyManagementTransitive>false</processDependencyManagementTransitive>
+						<processParent>true</processParent>
+						<rulesUri>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/versions/versions-rules.xml</rulesUri>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.openapitools</groupId>
