@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.kokuwa</groupId>
+	<artifactId>maven-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Maven Parent</name>
+	<description>Parent for all Kokuwa maven projects.</description>
+	<url>https://github.com/kokuwaio/maven-parent</url>
+	<inceptionYear>2020</inceptionYear>
+	<organization>
+		<name>Kokuwa.io</name>
+		<url>http://kokuwa.io</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Stephan Schnabel</name>
+			<url>https://github.com/stephanschnabel</url>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/kokuwaio/maven-parent</url>
+		<connection>scm:git:https://github.com/kokuwaio/maven-parent.git</connection>
+		<developerConnection>scm:git:https://github.com/kokuwaio/maven-parent.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/kokuwaio/maven-parent/issues</url>
+	</issueManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<properties>
+
+		<!-- ===================================================================== -->
+		<!-- =============================== Build =============================== -->
+		<!-- ===================================================================== -->
+
+		<project.build.indentSize>4</project.build.indentSize>
+		<project.build.lineLength>160</project.build.lineLength>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- ===================================================================== -->
+		<!-- ============================= Libaries ============================== -->
+		<!-- ===================================================================== -->
+
+		<!-- plugins -->
+
+		<version.com.puppycrawl.tools.checkstyle>8.32</version.com.puppycrawl.tools.checkstyle>
+		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
+		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
+		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
+		<version.org.apache.maven.plugins.clean>3.1.0</version.org.apache.maven.plugins.clean>
+		<version.org.apache.maven.plugins.compiler>3.8.1</version.org.apache.maven.plugins.compiler>
+		<version.org.apache.maven.plugins.dependency_>3.1.2</version.org.apache.maven.plugins.dependency_>
+		<version.org.apache.maven.plugins.deploy>3.0.0-M1</version.org.apache.maven.plugins.deploy>
+		<version.org.apache.maven.plugins.enforcer>3.0.0-M3</version.org.apache.maven.plugins.enforcer>
+		<version.org.apache.maven.plugins.gpg>1.6</version.org.apache.maven.plugins.gpg>
+		<version.org.apache.maven.plugins.install>3.0.0-M1</version.org.apache.maven.plugins.install>
+		<version.org.apache.maven.plugins.invoker>3.2.1</version.org.apache.maven.plugins.invoker>
+		<version.org.apache.maven.plugins.javadoc>3.2.0</version.org.apache.maven.plugins.javadoc>
+		<version.org.apache.maven.plugins.jar>3.2.0</version.org.apache.maven.plugins.jar>
+		<version.org.apache.maven.plugins.jxr>3.0.0</version.org.apache.maven.plugins.jxr>
+		<version.org.apache.maven.plugins.plugin_>3.6.0</version.org.apache.maven.plugins.plugin_>
+		<version.org.apache.maven.plugins.release>3.0.0-M1</version.org.apache.maven.plugins.release>
+		<version.org.apache.maven.plugins.resources>3.1.0</version.org.apache.maven.plugins.resources>
+		<version.org.apache.maven.plugins.site>3.9.0</version.org.apache.maven.plugins.site>
+		<version.org.apache.maven.plugins.site.info>3.0.0</version.org.apache.maven.plugins.site.info>
+		<version.org.apache.maven.plugins.source>3.2.1</version.org.apache.maven.plugins.source>
+		<version.org.apache.maven.plugins.surefire>3.0.0-M4</version.org.apache.maven.plugins.surefire>
+		<version.org.codehaus.mojo.build-helper>3.1.0</version.org.codehaus.mojo.build-helper>
+		<version.org.codehaus.mojo.exec>1.6.0</version.org.codehaus.mojo.exec>
+		<version.org.codehaus.mojo.license>2.0.0</version.org.codehaus.mojo.license>
+		<version.org.codehaus.mojo.tidy>1.1.0</version.org.codehaus.mojo.tidy>
+		<version.org.codehaus.mojo.taglist>2.4</version.org.codehaus.mojo.taglist>
+		<version.org.codehaus.mojo.versions>2.7</version.org.codehaus.mojo.versions>
+		<version.org.jacoco>0.8.5</version.org.jacoco>
+		<version.org.openapitools>4.3.1</version.org.openapitools>
+
+		<!-- dependencies -->
+
+		<version.org.junit.jupiter>5.6.2</version.org.junit.jupiter>
+		<version.org.junit.platform>1.6.2</version.org.junit.platform>
+		<version.org.projectlombok>1.18.12</version.org.projectlombok>
+
+		<!-- ===================================================================== -->
+		<!-- =========================== Configuration =========================== -->
+		<!-- ===================================================================== -->
+
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.parameters>true</maven.compiler.parameters>
+		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+
+		<checkstyle.config.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle.xml</checkstyle.config.location>
+		<checkstyle.suppressions.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle-suppression.xml</checkstyle.suppressions.location>
+		<checkstyle.includeResources>true</checkstyle.includeResources>
+		<checkstyle.includeTestResources>true</checkstyle.includeTestResources>
+		<checkstyle.includeTestSourceDirectory>true</checkstyle.includeTestSourceDirectory>
+		<checkstyle.resourceIncludes>**/*.properties,**/*.yaml,**/*.sql,**/*.xml</checkstyle.resourceIncludes>
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- build -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${version.org.projectlombok}</version>
+			</dependency>
+
+			<!-- test -->
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-api</artifactId>
+				<version>${version.org.junit.jupiter}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${version.org.junit.jupiter}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-params</artifactId>
+				<version>${version.org.junit.jupiter}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.vintage</groupId>
+				<artifactId>junit-vintage-engine</artifactId>
+				<version>${version.org.junit.jupiter}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-launcher</artifactId>
+				<version>${version.org.junit.platform}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-surefire-provider</artifactId>
+				<version>${version.org.junit.platform}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-console-standalone</artifactId>
+				<version>${version.org.junit.platform}</version>
+				<scope>test</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+
+		<!-- build -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.ant}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.assembly}</version>
+					<configuration>
+						<descriptorSourceDirectory>${project.basedir}/src/main/assembly</descriptorSourceDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.checkstyle}</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${version.com.puppycrawl.tools.checkstyle}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.clean}</version>
+					<configuration>
+						<skip>${maven.deploy.only}</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.compiler}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.dependency_}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.deploy}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.enforcer}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.surefire}</version>
+					<configuration>
+						<trimStackTrace>false</trimStackTrace>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.gpg}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.install}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-invoker-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.invoker}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.javadoc}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.jar}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jxr-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.jxr}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.plugin_}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.site.info}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.release}</version>
+					<configuration>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+						<releaseProfiles>release</releaseProfiles>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.resources}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.source}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.site}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.surefire}</version>
+					<configuration>
+						<trimStackTrace>false</trimStackTrace>
+						<redirectTestOutputToFile>true</redirectTestOutputToFile>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.surefire}</version>
+					<configuration>
+						<alwaysGenerateSurefireReport>false</alwaysGenerateSurefireReport>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.build-helper}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.exec}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.license}</version>
+					<configuration>
+						<licenseMerges>
+							<licenseMerge>Apache License 2.0|The Apache License, Version 2.0|The Apache Software License, Version 2.0|Apache License, Version 2.0|Apache 2|Apache License, version 2.0</licenseMerge>
+							<licenseMerge>MIT License|The MIT License|MIT</licenseMerge>
+							<licenseMerge>BSD License|BSD|New BSD License</licenseMerge>
+							<licenseMerge>CDDL + GPLv2 with classpath exception|CDDL 1.1\nGPL2 w/ CPE|CDDL 1.1\r\nGPL2 w/ CPE|</licenseMerge>
+						</licenseMerges>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>taglist-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.taglist}</version>
+					<configuration>
+						<tagListOptions>
+							<tagClasses>
+								<tagClass>
+									<displayName>Todo</displayName>
+									<tags>
+										<tag>
+											<matchString>TODO</matchString>
+											<matchType>ignoreCase</matchType>
+										</tag>
+									</tags>
+								</tagClass>
+								<tagClass>
+									<displayName>Fixme</displayName>
+									<tags>
+										<tag>
+											<matchString>FIXME</matchString>
+											<matchType>exact</matchType>
+										</tag>
+									</tags>
+								</tagClass>
+							</tagClasses>
+						</tagListOptions>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>tidy-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.tidy}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${version.org.codehaus.mojo.versions}</version>
+					<configuration>
+						<processDependencyManagement>true</processDependencyManagement>
+						<processDependencyManagementTransitive>false</processDependencyManagementTransitive>
+						<processParent>true</processParent>
+						<rulesUri>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/versions/versions-rules.xml</rulesUri>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.openapitools</groupId>
+					<artifactId>openapi-generator-maven-plugin</artifactId>
+					<version>${version.org.openapitools}</version>
+					<configuration>
+						<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${version.org.jacoco}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>summary</report>
+							<report>team</report>
+							<report>licenses</report>
+							<report>dependencies</report>
+							<report>scm</report>
+							<report>ci-management</report>
+							<report>issue-management</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>property-updates-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>analyze-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jxr</report>
+							<report>test-jxr</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report-only</report>
+							<report>failsafe-report-only</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report</report>
+							<report>report-integration</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<profiles>
+		<profile>
+			<id>check</id>
+			<activation>
+				<file>
+					<exists>pom.xml</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+
+					<!-- check java version -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<banDuplicatePomDependencyVersions />
+										<requireJavaVersion>
+											<version>${maven.compiler.source}</version>
+										</requireJavaVersion>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- measure test coverage -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- fail if any pom is dirty -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tidy-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- fail if checkstyle reports problems -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+
+					<!-- add source/javadoc for downstream projects -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- signing for upload -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
