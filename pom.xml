@@ -60,8 +60,10 @@
 
 		<!-- plugins -->
 
+		<version.com.puppycrawl.tools.checkstyle>8.32</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
+		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
 		<version.org.apache.maven.plugins.clean>3.1.0</version.org.apache.maven.plugins.clean>
 		<version.org.apache.maven.plugins.compiler>3.8.1</version.org.apache.maven.plugins.compiler>
 		<version.org.apache.maven.plugins.dependency_>3.1.2</version.org.apache.maven.plugins.dependency_>
@@ -104,6 +106,13 @@
 		<maven.compiler.parameters>true</maven.compiler.parameters>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+
+		<checkstyle.config.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle.xml</checkstyle.config.location>
+		<checkstyle.suppressions.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle-suppression.xml</checkstyle.suppressions.location>         
+		<checkstyle.includeResources>true</checkstyle.includeResources>
+		<checkstyle.includeTestResources>true</checkstyle.includeTestResources>
+		<checkstyle.includeTestSourceDirectory>true</checkstyle.includeTestSourceDirectory>
+		<checkstyle.resourceIncludes>**/*.properties,**/*.yaml,**/*.sql,**/*.xml</checkstyle.resourceIncludes>
 
 	</properties>
 
@@ -198,6 +207,18 @@
 					<configuration>
 						<descriptorSourceDirectory>${project.basedir}/src/main/assembly</descriptorSourceDirectory>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.checkstyle}</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${version.com.puppycrawl.tools.checkstyle}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -478,6 +499,17 @@
 				</reportSets>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>taglist-maven-plugin</artifactId>
 			</plugin>
@@ -539,6 +571,20 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>tidy-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- fail if checkstyle reports problems -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
 						<executions>
 							<execution>
 								<phase>verify</phase>
