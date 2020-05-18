@@ -325,7 +325,7 @@
 					<version>${version.org.apache.maven.plugins.surefire}</version>
 					<configuration>
 						<trimStackTrace>false</trimStackTrace>
-						<redirectTestOutputToFile>false</redirectTestOutputToFile>
+						<redirectTestOutputToFile>true</redirectTestOutputToFile>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -521,15 +521,13 @@
 	</reporting>
 
 	<profiles>
-
 		<profile>
-			<id>release</id>
-			<properties>
-
-				<!-- disable test noise -->
-				<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
-
-			</properties>
+			<id>check</id>
+			<activation>
+				<file>
+					<exists>pom.xml</exists>
+				</file>
+			</activation>
 			<build>
 				<plugins>
 
@@ -595,6 +593,14 @@
 						</executions>
 					</plugin>
 
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+
 					<!-- add source/javadoc for downstream projects -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -635,6 +641,5 @@
 				</plugins>
 			</build>
 		</profile>
-
 	</profiles>
 </project>
