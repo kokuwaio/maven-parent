@@ -2,8 +2,8 @@ name: CI build and Deploy
 
 on:
   push:
-    # run on all tags
     tags:
+    - '*'
 
 jobs:
   build:
