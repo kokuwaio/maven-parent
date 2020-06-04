@@ -67,7 +67,7 @@
 
 		<!-- plugins -->
 
-		<version.com.puppycrawl.tools.checkstyle>8.32</version.com.puppycrawl.tools.checkstyle>
+		<version.com.puppycrawl.tools.checkstyle>8.33</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
 		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
@@ -86,11 +86,11 @@
 		<version.org.apache.maven.plugins.release>3.0.0-M1</version.org.apache.maven.plugins.release>
 		<version.org.apache.maven.plugins.resources>3.1.0</version.org.apache.maven.plugins.resources>
 		<version.org.apache.maven.plugins.site>3.9.0</version.org.apache.maven.plugins.site>
-		<version.org.apache.maven.plugins.site.info>3.0.0</version.org.apache.maven.plugins.site.info>
+		<version.org.apache.maven.plugins.site.info>3.1.0</version.org.apache.maven.plugins.site.info>
 		<version.org.apache.maven.plugins.source>3.2.1</version.org.apache.maven.plugins.source>
 		<version.org.apache.maven.plugins.surefire>3.0.0-M4</version.org.apache.maven.plugins.surefire>
 		<version.org.codehaus.mojo.build-helper>3.1.0</version.org.codehaus.mojo.build-helper>
-		<version.org.codehaus.mojo.exec>1.6.0</version.org.codehaus.mojo.exec>
+		<version.org.codehaus.mojo.exec>3.0.0</version.org.codehaus.mojo.exec>
 		<version.org.codehaus.mojo.license>2.0.0</version.org.codehaus.mojo.license>
 		<version.org.codehaus.mojo.tidy>1.1.0</version.org.codehaus.mojo.tidy>
 		<version.org.codehaus.mojo.taglist>2.4</version.org.codehaus.mojo.taglist>
