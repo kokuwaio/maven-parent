@@ -67,6 +67,7 @@
 
 		<!-- plugins -->
 
+		<version.com.google.cloud.tools.plugins.jib>2.5.2</version.com.google.cloud.tools.plugins.jib>
 		<version.com.puppycrawl.tools.checkstyle>8.33</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
@@ -85,6 +86,7 @@
 		<version.org.apache.maven.plugins.plugin_>3.6.0</version.org.apache.maven.plugins.plugin_>
 		<version.org.apache.maven.plugins.release>3.0.0-M1</version.org.apache.maven.plugins.release>
 		<version.org.apache.maven.plugins.resources>3.1.0</version.org.apache.maven.plugins.resources>
+		<version.org.apache.maven.plugins.shade>3.2.4</version.org.apache.maven.plugins.shade>
 		<version.org.apache.maven.plugins.site>3.9.0</version.org.apache.maven.plugins.site>
 		<version.org.apache.maven.plugins.site.info>3.1.0</version.org.apache.maven.plugins.site.info>
 		<version.org.apache.maven.plugins.source>3.2.1</version.org.apache.maven.plugins.source>
@@ -188,6 +190,11 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>com.google.cloud.tools</groupId>
+					<artifactId>jib-maven-plugin</artifactId>
+					<version>${version.com.google.cloud.tools.plugins.jib}</version>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -305,13 +312,18 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>${version.org.apache.maven.plugins.source}</version>
+					<artifactId>maven-shade-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.shade}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.site}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.source}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
