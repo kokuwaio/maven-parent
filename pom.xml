@@ -560,6 +560,32 @@
 
 	<profiles>
 		<profile>
+			<id>jacoco</id>
+			<activation>
+				<file>
+					<exists>${basedir}/src/test/java</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+
+					<!-- measure test coverage -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>check</id>
 			<activation>
 				<file>
@@ -586,19 +612,6 @@
 										</requireJavaVersion>
 									</rules>
 								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-
-					<!-- measure test coverage -->
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
 							</execution>
 						</executions>
 					</plugin>
