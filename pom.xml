@@ -67,8 +67,8 @@
 
 		<!-- plugins -->
 
-		<version.com.google.cloud.tools.plugins.jib>2.5.2</version.com.google.cloud.tools.plugins.jib>
-		<version.com.puppycrawl.tools.checkstyle>8.36.1</version.com.puppycrawl.tools.checkstyle>
+		<version.com.google.cloud.tools.plugins.jib>2.6.0</version.com.google.cloud.tools.plugins.jib>
+		<version.com.puppycrawl.tools.checkstyle>8.36.2</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
 		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
@@ -98,13 +98,14 @@
 		<version.org.codehaus.mojo.taglist>2.4</version.org.codehaus.mojo.taglist>
 		<version.org.codehaus.mojo.versions>2.8.1</version.org.codehaus.mojo.versions>
 		<version.org.jacoco>0.8.6</version.org.jacoco>
-		<version.org.openapitools>4.3.1</version.org.openapitools>
+		<version.org.openapitools.generator>4.3.1</version.org.openapitools.generator>
+		<version.org.openapitools.stylevalidator>1.4</version.org.openapitools.stylevalidator>
 
 		<!-- dependencies -->
 
 		<version.org.junit.jupiter>5.7.0</version.org.junit.jupiter>
 		<version.org.junit.platform>1.7.0</version.org.junit.platform>
-		<version.org.projectlombok>1.18.12</version.org.projectlombok>
+		<version.org.projectlombok>1.18.16</version.org.projectlombok>
 
 		<!-- ===================================================================== -->
 		<!-- =========================== Configuration =========================== -->
@@ -445,9 +446,19 @@
 				<plugin>
 					<groupId>org.openapitools</groupId>
 					<artifactId>openapi-generator-maven-plugin</artifactId>
-					<version>${version.org.openapitools}</version>
+					<version>${version.org.openapitools.generator}</version>
 					<configuration>
 						<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.openapitools.openapistylevalidator</groupId>
+					<artifactId>openapi-style-validator-maven-plugin </artifactId>
+					<version>${version.org.openapitools.stylevalidator}</version>
+					<configuration>
+						<ignoreHeaderXNaming>false</ignoreHeaderXNaming>
+						<propertyNamingConvention>UnderscoreCase</propertyNamingConvention>
+						<parameterNamingConvention>UnderscoreCase</parameterNamingConvention>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -560,6 +571,32 @@
 
 	<profiles>
 		<profile>
+			<id>jacoco</id>
+			<activation>
+				<file>
+					<exists>${basedir}/src/test/java</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+
+					<!-- measure test coverage -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>check</id>
 			<activation>
 				<file>
@@ -590,26 +627,13 @@
 						</executions>
 					</plugin>
 
-					<!-- measure test coverage -->
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-
 					<!-- fail if any pom is dirty -->
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>tidy-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<phase>verify</phase>
+								<phase>validate</phase>
 								<goals>
 									<goal>check</goal>
 								</goals>

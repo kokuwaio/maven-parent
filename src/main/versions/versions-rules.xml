@@ -3,11 +3,14 @@
 
 	<ignoreVersions>
 		<!-- ignore development versions -->
+		<ignoreVersion type="regex">.*-alpha</ignoreVersion>
 		<ignoreVersion type="regex">.*-alpha\d</ignoreVersion>
+		<ignoreVersion type="regex">.*-beta</ignoreVersion>
+		<ignoreVersion type="regex">.*-beta\d</ignoreVersion>
 		<!-- ignore versions for old java versions -->
 		<ignoreVersion type="regex">.*\.jre7</ignoreVersion>
 		<ignoreVersion type="regex">.*\.jre6</ignoreVersion>
-		<!-- ignore custom versions from jboss/atllassian -->
+		<!-- ignore custom versions from jboss/atlassian -->
 		<ignoreVersion type="regex">.*-atlassian-.*</ignoreVersion>
 		<ignoreVersion type="regex">.*-jboss-\d</ignoreVersion>
 		<ignoreVersion type="regex">.*\.jbossorg-\d</ignoreVersion>
