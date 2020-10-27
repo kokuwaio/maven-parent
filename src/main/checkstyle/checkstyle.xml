@@ -10,6 +10,7 @@
 	<module name="SuppressionFilter">
 		<property name="file" value="${checkstyle.suppressions.file}" />
 	</module>
+	<module name="SuppressWarningsFilter" />
 
 	<module name="LineLength">
 		<property name="max" value="120" />
@@ -41,6 +42,7 @@
 		<module name="MissingOverride">
 			<property name="javaFiveCompatibility" value="false" />
 		</module>
+		<module name="SuppressWarningsHolder" />
 
 		<!-- CODING - http://checkstyle.sourceforge.net/config_coding.html -->
 		<module name="EqualsHashCode" />
@@ -61,6 +63,13 @@
 		<module name="IllegalImport">
 			<property name="illegalPkgs" value="sun,com.sun,java.awt,java.applet,jdk,com.oracle,javafx" />
 		</module>
+		<module name="ImportOrder">
+			<property name="groups" value="/^java\./,javax,org,com" />
+			<property name="ordered" value="true" />
+			<property name="separated" value="true" />
+			<property name="option" value="top" />
+			<property name="sortStaticImportsAlphabetically" value="true" />
+		</module>
 		<module name="RedundantImport" />
 		<module name="UnusedImports">
 			<property name="processJavadoc" value="true" />
@@ -79,6 +88,12 @@
 		<module name="ModifierOrder" />
 		<module name="RedundantModifier">
 			<property name="tokens" value="METHOD_DEF,VARIABLE_DEF,ANNOTATION_FIELD_DEF,INTERFACE_DEF,CLASS_DEF" />
+		</module>
+
+		<!-- BLOCK - https://checkstyle.sourceforge.io/config_blocks.html -->
+		<module name="LeftCurly">
+			<property name="option" value="eol" />
+			<property name="ignoreEnums" value="false" />
 		</module>
 
 		<!-- SIZE - http://checkstyle.sourceforge.net/config_sizes.html -->
@@ -103,6 +118,15 @@
 			<property name="option" value="nospace" />
 		</module>
 		<module name="WhitespaceAfter" />
+		<module name="WhitespaceAround">
+			<property name="allowEmptyConstructors" value="true" />
+			<property name="allowEmptyMethods" value="true" />
+			<property name="allowEmptyTypes" value="true" />
+			<property name="allowEmptyLoops" value="true" />
+			<property name="allowEmptyLambdas" value="true" />
+			<property name="allowEmptyCatches" value="true" />
+			<property name="ignoreEnhancedForColon" value="false" />
+		</module>
 
 	</module>
 
