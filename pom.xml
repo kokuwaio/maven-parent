@@ -98,7 +98,8 @@
 		<version.org.codehaus.mojo.taglist>2.4</version.org.codehaus.mojo.taglist>
 		<version.org.codehaus.mojo.versions>2.8.1</version.org.codehaus.mojo.versions>
 		<version.org.jacoco>0.8.6</version.org.jacoco>
-		<version.org.openapitools>4.3.1</version.org.openapitools>
+		<version.org.openapitools.generator>4.3.1</version.org.openapitools.generator>
+		<version.org.openapitools.stylevalidator>1.4</version.org.openapitools.stylevalidator>
 
 		<!-- dependencies -->
 
@@ -445,9 +446,19 @@
 				<plugin>
 					<groupId>org.openapitools</groupId>
 					<artifactId>openapi-generator-maven-plugin</artifactId>
-					<version>${version.org.openapitools}</version>
+					<version>${version.org.openapitools.generator}</version>
 					<configuration>
 						<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.openapitools.openapistylevalidator</groupId>
+					<artifactId>openapi-style-validator-maven-plugin </artifactId>
+					<version>${version.org.openapitools.stylevalidator}</version>
+					<configuration>
+						<ignoreHeaderXNaming>false</ignoreHeaderXNaming>
+						<propertyNamingConvention>UnderscoreCase</propertyNamingConvention>
+						<parameterNamingConvention>UnderscoreCase</parameterNamingConvention>
 					</configuration>
 				</plugin>
 				<plugin>
