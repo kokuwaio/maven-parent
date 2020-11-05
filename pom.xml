@@ -68,7 +68,7 @@
 		<!-- plugins -->
 
 		<version.com.google.cloud.tools.plugins.jib>2.6.0</version.com.google.cloud.tools.plugins.jib>
-		<version.com.puppycrawl.tools.checkstyle>8.36.2</version.com.puppycrawl.tools.checkstyle>
+		<version.com.puppycrawl.tools.checkstyle>8.37</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
 		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
@@ -100,6 +100,7 @@
 		<version.org.jacoco>0.8.6</version.org.jacoco>
 		<version.org.openapitools.generator>4.3.1</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.4</version.org.openapitools.stylevalidator>
+		<version.org.sonatype.plugins.nexus-staging>1.6.8</version.org.sonatype.plugins.nexus-staging>
 
 		<!-- dependencies -->
 
@@ -336,6 +337,7 @@
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<releaseProfiles>release</releaseProfiles>
+						<localCheckout>true</localCheckout>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -465,6 +467,11 @@
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>${version.org.jacoco}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>${version.org.sonatype.plugins.nexus-staging}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -696,8 +703,27 @@
 								<goals>
 									<goal>sign</goal>
 								</goals>
+								<configuration>
+									<!-- Prevent `gpg` from using pinentry programs -->
+									<gpgArguments>
+										<arg>--pinentry-mode</arg>
+										<arg>loopback</arg>
+									</gpgArguments>
+								</configuration>
 							</execution>
 						</executions>
+					</plugin>
+
+					<!-- autoclose sonatype nexus repo -->
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>sonatype-nexus</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
 					</plugin>
 
 				</plugins>
