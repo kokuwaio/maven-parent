@@ -118,8 +118,8 @@
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
 
-		<checkstyle.config.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle.xml</checkstyle.config.location>
-		<checkstyle.suppressions.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/checkstyle/checkstyle-suppression.xml</checkstyle.suppressions.location>
+		<checkstyle.config.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/checkstyle/checkstyle.xml</checkstyle.config.location>
+		<checkstyle.suppressions.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/checkstyle/checkstyle-suppression.xml</checkstyle.suppressions.location>
 		<checkstyle.includeResources>true</checkstyle.includeResources>
 		<checkstyle.includeTestResources>true</checkstyle.includeTestResources>
 		<checkstyle.includeTestSourceDirectory>true</checkstyle.includeTestSourceDirectory>
@@ -442,7 +442,7 @@
 						<processDependencyManagement>true</processDependencyManagement>
 						<processDependencyManagementTransitive>false</processDependencyManagementTransitive>
 						<processParent>true</processParent>
-						<rulesUri>https://raw.githubusercontent.com/kokuwaio/maven-parent/master/src/main/versions/versions-rules.xml</rulesUri>
+						<rulesUri>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/versions/versions-rules.xml</rulesUri>
 					</configuration>
 				</plugin>
 				<plugin>
