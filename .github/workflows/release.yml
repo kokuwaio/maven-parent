@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GIT_ACTION_TOKEN }}
     - name: git-configure
       run: |
           git config user.email "actions@github.com"
