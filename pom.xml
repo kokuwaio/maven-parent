@@ -59,6 +59,7 @@
 		<project.build.indentSize>4</project.build.indentSize>
 		<project.build.lineLength>160</project.build.lineLength>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.propertiesEncoding>ISO-8859-1</project.build.propertiesEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- ===================================================================== -->
@@ -67,8 +68,8 @@
 
 		<!-- plugins -->
 
-		<version.com.google.cloud.tools.plugins.jib>2.6.0</version.com.google.cloud.tools.plugins.jib>
-		<version.com.puppycrawl.tools.checkstyle>8.37</version.com.puppycrawl.tools.checkstyle>
+		<version.com.google.cloud.tools.plugins.jib>2.7.1</version.com.google.cloud.tools.plugins.jib>
+		<version.com.puppycrawl.tools.checkstyle>8.39</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
 		<version.org.apache.maven.plugins.checkstyle>3.1.1</version.org.apache.maven.plugins.checkstyle>
@@ -98,7 +99,7 @@
 		<version.org.codehaus.mojo.taglist>2.4</version.org.codehaus.mojo.taglist>
 		<version.org.codehaus.mojo.versions>2.8.1</version.org.codehaus.mojo.versions>
 		<version.org.jacoco>0.8.6</version.org.jacoco>
-		<version.org.openapitools.generator>4.3.1</version.org.openapitools.generator>
+		<version.org.openapitools.generator>5.0.0</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.4</version.org.openapitools.stylevalidator>
 		<version.org.sonatype.plugins.nexus-staging>1.6.8</version.org.sonatype.plugins.nexus-staging>
 
@@ -344,6 +345,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.resources}</version>
+					<configuration>
+						<propertiesEncoding>${project.build.propertiesEncoding}</propertiesEncoding>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
