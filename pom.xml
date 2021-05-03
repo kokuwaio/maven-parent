@@ -4,7 +4,7 @@
 
 	<groupId>io.kokuwa</groupId>
 	<artifactId>maven-parent</artifactId>
-	<version>0.2.7-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Maven Parent</name>
@@ -459,12 +459,15 @@
 				</plugin>
 				<plugin>
 					<groupId>org.openapitools.openapistylevalidator</groupId>
-					<artifactId>openapi-style-validator-maven-plugin </artifactId>
+					<artifactId>openapi-style-validator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.stylevalidator}</version>
 					<configuration>
+						<!-- see https://opensource.zalando.com/restful-api-guidelines -->
 						<ignoreHeaderXNaming>false</ignoreHeaderXNaming>
-						<propertyNamingConvention>UnderscoreCase</propertyNamingConvention>
+						<headerNamingConvention>AnyCase</headerNamingConvention>
+						<pathNamingConvention>HyphenCase</pathNamingConvention>
 						<parameterNamingConvention>UnderscoreCase</parameterNamingConvention>
+						<propertyNamingConvention>UnderscoreCase</propertyNamingConvention>
 					</configuration>
 				</plugin>
 				<plugin>
