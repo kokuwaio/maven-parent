@@ -61,7 +61,7 @@
 		<!-- IMPORTS - http://checkstyle.sourceforge.net/config_imports.html -->
 		<module name="AvoidStarImport" />
 		<module name="IllegalImport">
-			<property name="illegalPkgs" value="sun,com.sun,java.awt,java.applet,jdk,com.oracle,javafx" />
+			<property name="illegalPkgs" value="sun,com.sun,java.applet,jdk,com.oracle,javafx" />
 		</module>
 		<module name="ImportOrder">
 			<property name="groups" value="/^java\./,javax,org,com" />
