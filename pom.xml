@@ -24,8 +24,11 @@
 
 	<developers>
 		<developer>
+			<id>stephanschnabel</id>
 			<name>Stephan Schnabel</name>
 			<url>https://github.com/stephanschnabel</url>
+			<organization>GrayC GmbH</organization>
+			<organizationUrl>http://grayc.de</organizationUrl>
 		</developer>
 	</developers>
 
@@ -39,16 +42,6 @@
 		<system>github</system>
 		<url>https://github.com/kokuwaio/maven-parent/issues</url>
 	</issueManagement>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>sonatype-nexus</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
 
 	<properties>
 
@@ -349,7 +342,6 @@
 					<version>${version.org.apache.maven.plugins.release}</version>
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
-						<releaseProfiles>release</releaseProfiles>
 						<localCheckout>true</localCheckout>
 					</configuration>
 				</plugin>
@@ -685,7 +677,45 @@
 			</build>
 		</profile>
 		<profile>
-			<id>release</id>
+			<id>oss</id>
+			<build>
+				<plugins>
+
+					<!-- add source/javadoc for downstream projects -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>sonatype-nexus</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>oss-release</id>
 			<build>
 				<plugins>
 
@@ -747,6 +777,12 @@
 
 				</plugins>
 			</build>
+			<distributionManagement>
+				<repository>
+					<id>sonatype-nexus</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
 		</profile>
 	</profiles>
 </project>
