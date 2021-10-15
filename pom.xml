@@ -101,7 +101,7 @@
 
 		<version.org.junit.jupiter>5.8.1</version.org.junit.jupiter>
 		<version.org.junit.platform>1.8.1</version.org.junit.platform>
-		<version.org.projectlombok>1.18.20</version.org.projectlombok>
+		<version.org.projectlombok>1.18.22</version.org.projectlombok>
 
 		<!-- ===================================================================== -->
 		<!-- =========================== Configuration =========================== -->
