@@ -4,7 +4,7 @@
 
 	<groupId>io.kokuwa</groupId>
 	<artifactId>maven-parent</artifactId>
-	<version>0.4.5-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Maven Parent</name>
@@ -65,6 +65,7 @@
 		<version.com.puppycrawl.tools.checkstyle>9.0.1</version.com.puppycrawl.tools.checkstyle>
 		<version.com.spotify.dockerfile>1.4.13</version.com.spotify.dockerfile>
 		<version.io.github.git-commit-id>5.0.0</version.io.github.git-commit-id>
+		<version.io.kokuwa.maven.parent>0.5.0-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.org.apache.maven.plugins.ant>3.0.0</version.org.apache.maven.plugins.ant>
 		<version.org.apache.maven.plugins.assembly>3.3.0</version.org.apache.maven.plugins.assembly>
 		<version.org.apache.maven.plugins.checkstyle>3.1.2</version.org.apache.maven.plugins.checkstyle>
@@ -114,8 +115,8 @@
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
 
-		<checkstyle.config.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/checkstyle/checkstyle.xml</checkstyle.config.location>
-		<checkstyle.suppressions.location>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/checkstyle/checkstyle-suppression.xml</checkstyle.suppressions.location>
+		<checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
+		<checkstyle.suppressions.location>checkstyle-suppression.xml</checkstyle.suppressions.location>
 		<checkstyle.includeResources>true</checkstyle.includeResources>
 		<checkstyle.includeTestResources>true</checkstyle.includeTestResources>
 		<checkstyle.includeTestSourceDirectory>true</checkstyle.includeTestSourceDirectory>
@@ -246,6 +247,13 @@
 							<groupId>com.puppycrawl.tools</groupId>
 							<artifactId>checkstyle</artifactId>
 							<version>${version.com.puppycrawl.tools.checkstyle}</version>
+						</dependency>
+						<dependency>
+							<groupId>io.kokuwa</groupId>
+							<artifactId>maven-parent</artifactId>
+							<version>${version.io.kokuwa.maven.parent}</version>
+							<type>zip</type>
+							<classifier>checkstyle</classifier>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -456,8 +464,17 @@
 						<processDependencyManagement>true</processDependencyManagement>
 						<processDependencyManagementTransitive>false</processDependencyManagementTransitive>
 						<processParent>true</processParent>
-						<rulesUri>https://raw.githubusercontent.com/kokuwaio/maven-parent/main/src/main/versions/versions-rules.xml</rulesUri>
+						<rulesUri>classpath:///versions-rules.xml</rulesUri>
 					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>io.kokuwa</groupId>
+							<artifactId>maven-parent</artifactId>
+							<version>${version.io.kokuwa.maven.parent}</version>
+							<type>zip</type>
+							<classifier>versions</classifier>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.openapitools</groupId>
@@ -492,6 +509,27 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+
+			<!-- assembly checkstyle and versions -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptorSourceDirectory>${project.basedir}/src/main/assembly</descriptorSourceDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
 	</build>
 
 	<reporting>
