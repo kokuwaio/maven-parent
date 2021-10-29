@@ -55,6 +55,8 @@
 		<project.build.propertiesEncoding>ISO-8859-1</project.build.propertiesEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+
 		<!-- ===================================================================== -->
 		<!-- ============================= Libaries ============================== -->
 		<!-- ===================================================================== -->
