@@ -483,6 +483,8 @@
 					<artifactId>openapi-generator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.generator}</version>
 					<configuration>
+						<enablePostProcessFile>false</enablePostProcessFile>
+						<strictSpec>true</strictSpec>
 						<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
 					</configuration>
 				</plugin>
