@@ -1,7 +1,0 @@
-## do not enter environment specific value, use .gitignore_global!
-
-target/
-pom.xml.*
-release.properties
-.idea
-*.iml
