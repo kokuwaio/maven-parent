@@ -36,6 +36,6 @@ jobs:
       - run: mvn $MAVEN_ARGS verify
       - run: mvn $MAVEN_ARGS site
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          name: site
           path: target/site
