@@ -42,6 +42,14 @@
 		<system>github</system>
 		<url>https://github.com/kokuwaio/maven-parent/issues</url>
 	</issueManagement>
+	<distributionManagement>
+		<relocation>
+			<groupId>io.kokuwa.maven</groupId>
+			<artifactId>maven-parent</artifactId>
+			<version>0.6.0</version>
+			<message>added maven segment to groupId</message>
+		</relocation>
+	</distributionManagement>
 
 	<properties>
 
