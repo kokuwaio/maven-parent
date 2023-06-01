@@ -658,7 +658,7 @@
 								<distributionManagement>remove</distributionManagement>
 								<profiles>remove</profiles>
 							</pomElements>
-							<flattenedPomFilename>.reduced.pom.xml</flattenedPomFilename>
+							<flattenedPomFilename>.reduced-pom.xml</flattenedPomFilename>
 						</configuration>
 					</execution>
 				</executions>
@@ -703,7 +703,7 @@
 							<arguments>
 								<argument>-i</argument>
 								<argument>0,/maven-parent/s/maven-parent/maven-parent-reduced/</argument>
-								<argument>${project.build.directory}/.reduced.pom.xml</argument>
+								<argument>${project.build.directory}/.reduced-pom.xml</argument>
 							</arguments>
 						</configuration>
 					</execution>
