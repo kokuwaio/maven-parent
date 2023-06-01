@@ -9,7 +9,7 @@
 
 	<name>Maven Parent</name>
 	<description>Parent for all Kokuwa maven projects.</description>
-	<url>https://maven.kokuwa.io/${project.artifactId}/${project.version}</url>
+	<url>https://maven.kokuwa.io/maven-parent</url>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
 		<name>Kokuwa.io</name>
@@ -58,7 +58,7 @@
 			<id>sonatype-nexus</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
-		<site>
+		<site child.site.url.inherit.append.path="false">
 			<id>github</id>
 			<url>scm:git:https://github.com/kokuwaio/maven-sites.git</url>
 		</site>
@@ -89,7 +89,7 @@
 
 		<maven.release.preparationGoals>clean verify</maven.release.preparationGoals>
 		<maven.release.preparationProfiles />
-		<maven.release.releaseProfiles>release,deploy,site</maven.release.releaseProfiles>
+		<maven.release.releaseProfiles>deploy,site,ossrh</maven.release.releaseProfiles>
 
 		<!-- ===================================================================== -->
 		<!-- ============================= Versions ============================== -->
@@ -162,10 +162,6 @@
 				<version>${project.prerequisites.maven}</version>
 				<exclusions>
 					<exclusion>
-						<groupId>org.apache.commons</groupId>
-						<artifactId>commons-lang3</artifactId>
-					</exclusion>
-					<exclusion>
 						<groupId>org.codehaus.plexus</groupId>
 						<artifactId>plexus-utils</artifactId>
 					</exclusion>
@@ -195,12 +191,6 @@
 				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-sec-dispatcher</artifactId>
 				<version>${version.org.codehaus.plexus.dispatcher}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.inject</groupId>
-						<artifactId>javax.inject</artifactId>
-					</exclusion>
-				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.sisu</groupId>
@@ -394,6 +384,8 @@
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<from>MIT</from>
+									<from>MIT-0</from>
 									<from>MIT License</from>
 									<from>The MIT License</from>
 								</froms>
@@ -403,12 +395,14 @@
 								<froms>
 									<!-- https://repo1.maven.org/maven2/dk/brics/automaton/1.12-4/automaton-1.12-4.pom -->
 									<from>BSD</from>
+									<from>BSD-2-Clause</from>
 									<from>BSD 2-Clause License</from>
 								</froms>
 								<to>BSD 2-Clause "Simplified" License</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<from>New BSD License</from>
 									<from>The (New) BSD License</from>
 									<from>BSD-3-Clause</from>
 									<from>BSD 3-clause</from>
@@ -447,13 +441,16 @@
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<from>MPL 2.0 or EPL 1.0</from>
 									<from>Mozilla Public License, Version 2.0</from>
 								</froms>
 								<to>Mozilla Public License 2.0</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<from>MPL 2.0 or EPL 1.0</from>
 									<from>Eclipse Public License, Version 1.0</from>
+									<from>Eclipse Public License - Version 1.0</from>
 								</froms>
 								<to>Eclipse Public License 1.0</to>
 							</licenseMapping>
@@ -557,15 +554,15 @@
 						<!-- see maven-project-info-reports-plugin -->
 						<licenseMerges>
 							<licenseMerge>Apache License 2.0|Apache-2.0|Apache 2.0|Apache License, Version 2.0|Apache Software License, version 2.0|Apache Software License - Version 2.0|The Apache License, Version 2.0|The Apache Software License, Version 2.0</licenseMerge>
-							<licenseMerge>MIT License|The MIT License|MIT</licenseMerge>
-							<licenseMerge>BSD 2-Clause "Simplified" License|BSD|BSD 2-Clause License</licenseMerge>
-							<licenseMerge>BSD 3-Clause "New" or "Revised" License|The (New) BSD License|BSD-3-Clause|BSD 3-clause|BSD License 3|The BSD 3-Clause License|EDL 1.0|Eclipse Distribution License - v 1.0</licenseMerge>
+							<licenseMerge>MIT License|The MIT License|MIT|MIT-0</licenseMerge>
+							<licenseMerge>BSD 2-Clause "Simplified" License|BSD|BSD-2-Clause|BSD 2-Clause License</licenseMerge>
+							<licenseMerge>BSD 3-Clause "New" or "Revised" License|New BSD License|The (New) BSD License|BSD-3-Clause|BSD 3-clause|BSD License 3|The BSD 3-Clause License|EDL 1.0|Eclipse Distribution License - v 1.0</licenseMerge>
 							<licenseMerge>GNU General Public License v2.0 w/Classpath exception|GPL2 w/ CPE</licenseMerge>
 							<licenseMerge>GNU Lesser General Public License v2.1 or later|LGPL-2.1-or-later</licenseMerge>
 							<licenseMerge>GNU Lesser General Public License v3.0 or later|Lesser General Public License, version 3 or greater</licenseMerge>
 							<licenseMerge>Common Development and Distribution License 1.0|CDDL/GPLv2+CE|CDDL + GPLv2 with classpath exception</licenseMerge>
 							<licenseMerge>Mozilla Public License 2.0|Mozilla Public License, Version 2.0</licenseMerge>
-							<licenseMerge>Eclipse Public License 1.0|Eclipse Public License, Version 1.0</licenseMerge>
+							<licenseMerge>Eclipse Public License 1.0|Eclipse Public License - Version 1.0|Eclipse Public License, Version 1.0|MPL 2.0 or EPL 1.0</licenseMerge>
 							<licenseMerge>Eclipse Public License 2.0|EPL 2.0|Eclipse Public License v2.0</licenseMerge>
 						</licenseMerges>
 					</configuration>
@@ -654,6 +651,12 @@
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>${version.org.jacoco}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/HelpMojo.class</exclude>
+							<exclude>**/*MapperImpl.class</exclude>
+						</excludes>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.openapitools</groupId>
@@ -711,7 +714,6 @@
 							<pomElements>
 								<organization>remove</organization>
 								<distributionManagement>remove</distributionManagement>
-								<profiles>remove</profiles>
 							</pomElements>
 							<flattenedPomFilename>.reduced-pom.xml</flattenedPomFilename>
 						</configuration>
@@ -1091,7 +1093,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>release</id>
+			<id>ossrh</id>
 			<build>
 				<plugins>
 

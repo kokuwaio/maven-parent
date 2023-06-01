@@ -27,6 +27,10 @@ jobs:
         env:
           SERVER_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
           SERVER_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+      - run: mvn $MAVEN_ARGS deploy:deploy --file target/.reduced-pom.xml -DaltDeploymentRepository=sonatype-nexus::https://oss.sonatype.org/content/repositories/snapshots
+        env:
+          SERVER_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+          SERVER_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
       - run: mvn $MAVEN_ARGS site-deploy
         env:
           GIT_ACTION_TOKEN: ${{ secrets.GIT_ACTION_TOKEN }}

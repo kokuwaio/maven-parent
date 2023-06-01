@@ -33,7 +33,7 @@ jobs:
           java-version: 11
           cache: maven
       - run: mvn $MAVEN_ARGS dependency:go-offline
-      - run: mvn $MAVEN_ARGS verify
+      - run: mvn $MAVEN_ARGS install
       - run: mvn $MAVEN_ARGS site
       - uses: actions/upload-artifact@v3
         if: always()
