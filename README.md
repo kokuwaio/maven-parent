@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/kokuwaio/maven-parent.svg?label=License)](https://github.com/kokuwaio/maven-parent/blob/main/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/io.kokuwa.maven/maven-parent.svg?label=Maven%20Central)](https://central.sonatype.com/namespace/io.kokuwa.maven)
-[![CI](https://img.shields.io/github/actions/workflow/status/kokuwaio/maven-parent/ci.yaml?branch=main&label=CI)](https://github.com/kokuwaio/maven-parent/actions/workflows/ci.yaml?query=branch%3Amain)
+[![Build](https://img.shields.io/github/actions/workflow/status/kokuwaio/maven-parent/build.yaml?label=Build)](https://github.com/kokuwaio/maven-parent/actions/workflows/build.yaml)
 
 ## Goal
 
