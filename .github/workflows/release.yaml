@@ -38,7 +38,7 @@ jobs:
           SERVER_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
           GIT_ACTION_TOKEN: ${{ secrets.GIT_ACTION_TOKEN }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      - run: mvn $MAVEN_ARGS --file target/checkout/target/.reduced-pom.xml gpg:sign org.sonatype.plugins:nexus-staging-maven-plugin::deploy -DaltDeploymentRepository=sonatype-nexus::https://oss.sonatype.org/service/local/staging/deploy/maven2 -DserverId=sonatype-nexus -DnexusUrl=https://oss.sonatype.org
+      - run: mvn $MAVEN_ARGS --file target/checkout/target/.reduced-pom.xml gpg:sign org.sonatype.plugins:nexus-staging-maven-plugin::deploy -DaltDeploymentRepository=sonatype-nexus::https://oss.sonatype.org/service/local/staging/deploy/maven2
         env:
           SERVER_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
           SERVER_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}

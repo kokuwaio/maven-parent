@@ -76,6 +76,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.propertiesEncoding>ISO-8859-1</project.build.propertiesEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.license.prefix />
 
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
@@ -120,6 +121,7 @@
 		<version.org.apache.maven.plugins.site>3.12.1</version.org.apache.maven.plugins.site>
 		<version.org.apache.maven.plugins.source>3.3.0</version.org.apache.maven.plugins.source>
 		<version.org.apache.maven.plugins.surefire>3.1.0</version.org.apache.maven.plugins.surefire>
+		<version.org.apache.maven.plugins.toolchains>3.1.0</version.org.apache.maven.plugins.toolchains>
 
 		<!-- mojohaus plugins -->
 
@@ -137,18 +139,16 @@
 		<version.com.github.spotbugs>4.7.3.4</version.com.github.spotbugs>
 		<version.com.google.cloud.tools.plugins.jib>3.3.2</version.com.google.cloud.tools.plugins.jib>
 		<version.com.puppycrawl.tools.checkstyle>10.12.0</version.com.puppycrawl.tools.checkstyle>
-		<version.io.github.git-commit-id>6.0.0</version.io.github.git-commit-id>
 		<version.io.kokuwa.maven.parent>0.6.2-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.org.jacoco>0.8.10</version.org.jacoco>
 		<version.org.openapitools.generator>6.6.0</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.9</version.org.openapitools.stylevalidator>
 		<version.org.sonatype.plugins.nexus-staging>1.6.13</version.org.sonatype.plugins.nexus-staging>
 
-		<!-- dependencies -->
+		<!-- maven plugin related -->
 
 		<version.org.codehaus.plexus.dispatcher>2.0</version.org.codehaus.plexus.dispatcher>
 		<version.org.eclipse.sisu>0.3.5</version.org.eclipse.sisu>
-		<version.org.junit.jupiter>5.9.3</version.org.junit.jupiter>
 
 	</properties>
 
@@ -210,15 +210,6 @@
 						<artifactId>javax.inject</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
-
-			<!-- test -->
-			<dependency>
-				<groupId>org.junit</groupId>
-				<artifactId>junit-bom</artifactId>
-				<version>${version.org.junit.jupiter}</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 
 		</dependencies>
@@ -372,36 +363,64 @@
 						<licenseMappings>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
 									<from>Apache-2.0</from>
+									<from>Apache License 2.0</from>
+									<!-- alias -->
+									<from>ASL, version 2</from>
+									<from>Apache 2</from>
 									<from>Apache 2.0</from>
+									<from>Apache 2.0 License</from>
+									<from>Apache License 2.0</from>
+									<from>Apache License, version 2.0</from>
 									<from>Apache License, Version 2.0</from>
 									<from>Apache Software License, version 2.0</from>
 									<from>Apache Software License - Version 2.0</from>
 									<from>The Apache License, Version 2.0</from>
+									<from>The Apache Software License, version 2.0</from>
 									<from>The Apache Software License, Version 2.0</from>
 								</froms>
-								<to>Apache License 2.0</to>
+								<to>${project.license.prefix}Apache-2.0</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
 									<from>MIT</from>
-									<from>MIT-0</from>
 									<from>MIT License</from>
+									<!-- alias -->
 									<from>The MIT License</from>
+									<from>The MIT License (MIT)</from>
 								</froms>
-								<to>MIT License</to>
+								<to>${project.license.prefix}MIT</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
-									<!-- https://repo1.maven.org/maven2/dk/brics/automaton/1.12-4/automaton-1.12-4.pom -->
+									<!-- spdx -->
+									<from>MIT-0</from>
+									<from>MIT No Attribution</from>
+								</froms>
+								<to>${project.license.prefix}MIT-0</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>BSD-2-Clause</from>
+									<from>BSD 2-Clause "Simplified" License</from>
+									<!-- aslias -->
 									<from>BSD</from>
+									<from>The BSD License</from>
+									<from>BSD License</from>
 									<from>BSD-2-Clause</from>
 									<from>BSD 2-Clause License</from>
 								</froms>
-								<to>BSD 2-Clause "Simplified" License</to>
+								<to>${project.license.prefix}BSD-2-Clause</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>BSD-3-Clause</from>
+									<from>BSD 3-Clause "New" or "Revised" License</from>
+									<!-- alias -->
 									<from>New BSD License</from>
 									<from>The (New) BSD License</from>
 									<from>BSD-3-Clause</from>
@@ -410,56 +429,151 @@
 									<from>The BSD 3-Clause License</from>
 									<!-- https://lists.spdx.org/g/Spdx-legal/topic/request_for_adding_eclipse/67981884 -->
 									<from>EDL 1.0</from>
+									<from>Eclipse Distribution License v. 1.0</from>
 									<from>Eclipse Distribution License - v 1.0</from>
 								</froms>
-								<to>BSD 3-Clause "New" or "Revised" License</to>
+								<to>${project.license.prefix}BSD-3-Clause</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>CDDL-1.0</from>
+									<from>Common Development and Distribution License 1.0</from>
+									<!-- alias -->
+									<from>Common Development and Distribution License</from>
 									<from>CDDL/GPLv2+CE</from>
 									<from>CDDL + GPLv2 with classpath exception</from>
 								</froms>
-								<to>Common Development and Distribution License 1.0</to>
+								<to>${project.license.prefix}CDDL-1.0</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>CDDL-1.1</from>
+									<from>Common Development and Distribution License 1.1</from>
+									<!-- alias -->
+									<from>CDDL 1.1</from>
+								</froms>
+								<to>${project.license.prefix}CDDL-1.1</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>CC0-1.0</from>
+									<from>Creative Commons Zero v1.0 Universal</from>
+									<!-- alias -->
+									<from>CC0</from>
+									<from>Public Domain, per Creative Commons CC0</from>
+								</froms>
+								<to>${project.license.prefix}CC0-1.0</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>GPL-2.0-with-classpath-exception</from>
+									<from>GNU General Public License v2.0 w/Classpath exception</from>
+									<!-- alias -->
 									<from>GPL2 w/ CPE</from>
+									<from>GPL v2 with the Classpath exception</from>
+									<from>GNU General Public License, version 2 with the GNU Classpath Exception</from>
+									<from>GNU General Public License, Version 2 with the Classpath Exception</from>
+									<from>The GNU General Public License, v2 with FOSS exception</from>
 								</froms>
-								<to>GNU General Public License v2.0 w/Classpath exception</to>
-							</licenseMapping>			
-							<licenseMapping>
-								<froms>
-									<from>LGPL-2.1-or-later</from>
-								</froms>
-								<to>GNU Lesser General Public License v2.1 or later</to>
+								<to>${project.license.prefix}GPL-2.0-with-classpath-exception</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>LGPL-2.1-only</from>
+									<from>GNU Lesser General Public License v2.1 only</from>
+									<!-- alias -->
+									<from>LGPL 2.1</from>
+									<from>LGPL-2.1</from>
+									<from>LGPL, version 2.1</from>
+								</froms>
+								<to>${project.license.prefix}LGPL-2.1-only</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>LGPL-2.1-or-later</from>
+									<from>GNU Lesser General Public License v2.1 or later</from>
+									<!-- alias -->
+									<from>GNU Lesser General Public License v2.1 only</from>
+									<from>GNU Library General Public License v2.1 or later</from>
+								</froms>
+								<to>${project.license.prefix}LGPL-2.1-or-later</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>LGPL-3.0-or-later</from>
+									<from>GNU Lesser General Public License v3.0 or later</from>
+									<!-- alias -->
 									<from>Lesser General Public License, version 3 or greater</from>
 								</froms>
-								<to>GNU Lesser General Public License v3.0 or later</to>
+								<to>${project.license.prefix}LGPL-3.0-or-later</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>MPL-1.1</from>
+									<from>GNU Lesser General Public License v3.0 or later</from>
+									<!-- alias -->
+									<from>MPL 1.1</from>
+								</froms>
+								<to>${project.license.prefix}MPL-1.1</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>MPL-2.0</from>
+									<from>Mozilla Public License 2.0</from>
+									<!-- alias -->
+									<from>MPL 2.0</from>
 									<from>MPL 2.0 or EPL 1.0</from>
 									<from>Mozilla Public License, Version 2.0</from>
 								</froms>
-								<to>Mozilla Public License 2.0</to>
+								<to>${project.license.prefix}MPL-2.1</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>EPL-1.0</from>
+									<from>Eclipse Public License 1.0</from>
+									<!-- alias -->
 									<from>MPL 2.0 or EPL 1.0</from>
-									<from>Eclipse Public License, Version 1.0</from>
+									<from>EPL 1.0</from>
+									<from>Eclipse Public License 1.0</from>
+									<from>Eclipse Public License v1.0</from>
+									<from>Eclipse Public License - v 1.0</from>
 									<from>Eclipse Public License - Version 1.0</from>
+									<from>Eclipse Public License, Version 1.0</from>
 								</froms>
-								<to>Eclipse Public License 1.0</to>
+								<to>${project.license.prefix}EPL-1.0</to>
 							</licenseMapping>
 							<licenseMapping>
 								<froms>
+									<!-- spdx -->
+									<from>EPL-2.0</from>
+									<from>Eclipse Public License 2.0</from>
+									<!-- alias -->
 									<from>EPL 2.0</from>
+									<from>Eclipse Public License - v 2.0</from>
+									<from>Eclipse Public License 2.0</from>
+									<from>Eclipse Public License v. 2.0</from>
 									<from>Eclipse Public License v2.0</from>
+									<from>Eclipse Public License, Version 2.0</from>
 								</froms>
-								<to>Eclipse Public License 2.0</to>
+								<to>${project.license.prefix}EPL-2.0</to>
+							</licenseMapping>
+							<licenseMapping>
+								<froms>
+									<!-- spdx -->
+									<from>UPL-1.0</from>
+									<from>Universal Permissive License v1.0</from>
+								</froms>
+								<to>${project.license.prefix}UPL-1.0</to>
 							</licenseMapping>
 						</licenseMappings>
 					</configuration>
@@ -482,6 +596,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.resources}</version>
+					<configuration>
+						<propertiesEncoding>${project.build.propertiesEncoding}</propertiesEncoding>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -520,6 +637,18 @@
 						<alwaysGenerateSurefireReport>false</alwaysGenerateSurefireReport>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-toolchains-plugin</artifactId>
+					<version>${version.org.apache.maven.plugins.toolchains}</version>
+					<configuration>
+						<toolchains>
+							<jdk>
+								<version>${maven.compiler.source}</version>
+							</jdk>
+						</toolchains>
+					</configuration>
+				</plugin>
 
 				<!-- mojohaus plugins -->
 				<plugin>
@@ -537,6 +666,7 @@
 					<artifactId>flatten-maven-plugin</artifactId>
 					<version>${version.org.codehaus.mojo.flatten}</version>
 					<configuration>
+						<updatePomFile>true</updatePomFile>
 						<flattenMode>ossrh</flattenMode>
 						<outputDirectory>${project.build.directory}</outputDirectory>
 					</configuration>
@@ -550,22 +680,6 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>
 					<version>${version.org.codehaus.mojo.license}</version>
-					<configuration>
-						<!-- see maven-project-info-reports-plugin -->
-						<licenseMerges>
-							<licenseMerge>Apache License 2.0|Apache-2.0|Apache 2.0|Apache License, Version 2.0|Apache Software License, version 2.0|Apache Software License - Version 2.0|The Apache License, Version 2.0|The Apache Software License, Version 2.0</licenseMerge>
-							<licenseMerge>MIT License|The MIT License|MIT|MIT-0</licenseMerge>
-							<licenseMerge>BSD 2-Clause "Simplified" License|BSD|BSD-2-Clause|BSD 2-Clause License</licenseMerge>
-							<licenseMerge>BSD 3-Clause "New" or "Revised" License|New BSD License|The (New) BSD License|BSD-3-Clause|BSD 3-clause|BSD License 3|The BSD 3-Clause License|EDL 1.0|Eclipse Distribution License - v 1.0</licenseMerge>
-							<licenseMerge>GNU General Public License v2.0 w/Classpath exception|GPL2 w/ CPE</licenseMerge>
-							<licenseMerge>GNU Lesser General Public License v2.1 or later|LGPL-2.1-or-later</licenseMerge>
-							<licenseMerge>GNU Lesser General Public License v3.0 or later|Lesser General Public License, version 3 or greater</licenseMerge>
-							<licenseMerge>Common Development and Distribution License 1.0|CDDL/GPLv2+CE|CDDL + GPLv2 with classpath exception</licenseMerge>
-							<licenseMerge>Mozilla Public License 2.0|Mozilla Public License, Version 2.0</licenseMerge>
-							<licenseMerge>Eclipse Public License 1.0|Eclipse Public License - Version 1.0|Eclipse Public License, Version 1.0|MPL 2.0 or EPL 1.0</licenseMerge>
-							<licenseMerge>Eclipse Public License 2.0|EPL 2.0|Eclipse Public License v2.0</licenseMerge>
-						</licenseMerges>
-					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -643,11 +757,6 @@
 					<version>${version.com.google.cloud.tools.plugins.jib}</version>
 				</plugin>
 				<plugin>
-					<groupId>io.github.git-commit-id</groupId>
-					<artifactId>git-commit-id-maven-plugin</artifactId>
-					<version>${version.io.github.git-commit-id}</version>
-				</plugin>
-				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>${version.org.jacoco}</version>
@@ -673,7 +782,6 @@
 					<artifactId>openapi-style-validator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.stylevalidator}</version>
 					<configuration>
-						<validateInfoLicense>false</validateInfoLicense>
 						<!-- see https://opensource.zalando.com/restful-api-guidelines -->
 						<pathNamingConvention>HyphenCase</pathNamingConvention>
 						<parameterNamingConvention>UnderscoreCase</parameterNamingConvention>
@@ -681,11 +789,24 @@
 						<queryParamNamingConvention>UnderscoreCase</queryParamNamingConvention>
 						<propertyNamingConvention>UnderscoreCase</propertyNamingConvention>
 					</configuration>
+					<dependencies>
+						<!-- there are multiple versions in different dependencies, use fixed version -->
+						<dependency>
+							<groupId>io.swagger.core.v3</groupId>
+							<artifactId>swagger-models</artifactId>
+							<version>2.2.10</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<version>${version.org.sonatype.plugins.nexus-staging}</version>
+					<configuration>
+						<serverId>sonatype-nexus</serverId>
+						<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -715,6 +836,7 @@
 								<organization>remove</organization>
 								<distributionManagement>remove</distributionManagement>
 							</pomElements>
+							<updatePomFile>false</updatePomFile>
 							<flattenedPomFilename>.reduced-pom.xml</flattenedPomFilename>
 						</configuration>
 					</execution>
@@ -930,6 +1052,29 @@
 
 	<profiles>
 		<profile>
+			<id>toolchain</id>
+			<activation>
+				<file>
+					<exists>${user.home}/.m2/toolchains.xml</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-toolchains-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>toolchain</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>check</id>
 			<activation>
 				<property>
@@ -939,34 +1084,13 @@
 			<build>
 				<plugins>
 
-					<!-- check java version -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>validate</phase>
-								<goals>
-									<goal>enforce</goal>
-								</goals>
-								<configuration>
-									<rules>
-										<banDuplicatePomDependencyVersions />
-										<requireJavaVersion>
-											<version>${maven.compiler.source}</version>
-										</requireJavaVersion>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-
 					<!-- fail if any pom is dirty -->
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>tidy-maven-plugin</artifactId>
 						<executions>
 							<execution>
+								<id>default</id>
 								<phase>validate</phase>
 								<goals>
 									<goal>check</goal>
@@ -1097,6 +1221,18 @@
 			<build>
 				<plugins>
 
+					<!-- disable tidy for flattend stuff -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tidy-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default</id>
+								<phase/>
+							</execution>
+						</executions>
+					</plugin>
+
 					<!-- sign documents before upload -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -1115,11 +1251,6 @@
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
 						<extensions>true</extensions>
-						<configuration>
-							<serverId>sonatype-nexus</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
 					</plugin>
 
 				</plugins>
