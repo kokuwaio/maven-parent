@@ -70,7 +70,6 @@
 		<!-- =============================== Build =============================== -->
 		<!-- ===================================================================== -->
 
-		<project.prerequisites.maven>3.2.5</project.prerequisites.maven>
 		<project.build.indentSize>4</project.build.indentSize>
 		<project.build.lineLength>160</project.build.lineLength>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -147,6 +146,7 @@
 
 		<!-- maven plugin related -->
 
+		<version.org.apache.maven.plugin>3.2.5</version.org.apache.maven.plugin>
 		<version.org.codehaus.plexus.dispatcher>2.0</version.org.codehaus.plexus.dispatcher>
 		<version.org.eclipse.sisu>0.3.5</version.org.eclipse.sisu>
 
@@ -159,7 +159,7 @@
 			<dependency>
 				<groupId>org.apache.maven</groupId>
 				<artifactId>maven-plugin-api</artifactId>
-				<version>${project.prerequisites.maven}</version>
+				<version>${version.org.apache.maven.plugin}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.codehaus.plexus</groupId>
@@ -174,7 +174,7 @@
 			<dependency>
 				<groupId>org.apache.maven</groupId>
 				<artifactId>maven-settings</artifactId>
-				<version>${project.prerequisites.maven}</version>
+				<version>${version.org.apache.maven.plugin}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.codehaus.plexus</groupId>
