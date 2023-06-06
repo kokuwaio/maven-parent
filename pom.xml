@@ -148,7 +148,6 @@
 		<!-- maven plugin related -->
 
 		<version.org.codehaus.plexus.dispatcher>2.0</version.org.codehaus.plexus.dispatcher>
-		<version.org.codehaus.plexus.utils>4.0.0</version.org.codehaus.plexus.utils>
 		<version.org.eclipse.sisu>0.3.5</version.org.eclipse.sisu>
 
 	</properties>
@@ -211,11 +210,6 @@
 						<artifactId>javax.inject</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.codehaus.plexus</groupId>
-				<artifactId>plexus-utils</artifactId>
-				<version>${version.org.codehaus.plexus.utils}</version>
 			</dependency>
 
 		</dependencies>
