@@ -864,6 +864,7 @@
 						<dependencyManagement>keep</dependencyManagement>
 						<pluginManagement>keep</pluginManagement>
 						<profiles>keep</profiles>
+						<reporting>keep</reporting>
 					</pomElements>
 				</configuration>
 			</plugin>
