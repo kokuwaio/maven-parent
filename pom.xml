@@ -87,9 +87,14 @@
 
 		<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
+		<maven.release.goals>deploy</maven.release.goals>
+		<maven.release.localCheckout>true</maven.release.localCheckout>
 		<maven.release.preparationGoals>clean verify</maven.release.preparationGoals>
 		<maven.release.preparationProfiles />
 		<maven.release.releaseProfiles>deploy,site,ossrh</maven.release.releaseProfiles>
+		<maven.release.scmReleaseCommitComment>@{prefix} prepare release @{releaseLabel} [no ci]</maven.release.scmReleaseCommitComment>
+		<maven.release.signTag>true</maven.release.signTag>
+		<maven.release.tagNameFormat>@{project.version}</maven.release.tagNameFormat>
 
 		<!-- ===================================================================== -->
 		<!-- ============================= Versions ============================== -->
@@ -349,7 +354,10 @@
 						<includeTests>true</includeTests>
 						<skipEmptyReport>true</skipEmptyReport>
 						<excludeRoots>
+							<excludeRoot>gen/main/java</excludeRoot>
+							<excludeRoot>gen/test/java</excludeRoot>
 							<excludeRoot>target/generated-sources</excludeRoot>
+							<excludeRoot>target/generated-test-sources</excludeRoot>
 						</excludeRoots>
 					</configuration>
 				</plugin>
@@ -583,13 +591,14 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.release}</version>
 					<configuration>
-						<tagNameFormat>@{project.version}</tagNameFormat>
-						<localCheckout>true</localCheckout>
-						<signTag>true</signTag>
-						<scmReleaseCommitComment>@{prefix} prepare release @{releaseLabel} [no ci]</scmReleaseCommitComment>
+						<goals>${maven.release.goals}</goals>
+						<localCheckout>${maven.release.localCheckout}</localCheckout>
 						<preparationGoals>${maven.release.preparationGoals}</preparationGoals>
 						<preparationProfiles>${maven.release.preparationProfiles}</preparationProfiles>
 						<releaseProfiles>${maven.release.releaseProfiles}</releaseProfiles>
+						<scmReleaseCommitComment>${maven.release.scmReleaseCommitComment}</scmReleaseCommitComment>
+						<signTag>${maven.release.signTag}</signTag>
+						<tagNameFormat>${maven.release.tagNameFormat}</tagNameFormat>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -772,9 +781,8 @@
 					<artifactId>openapi-generator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.generator}</version>
 					<configuration>
-						<enablePostProcessFile>false</enablePostProcessFile>
 						<strictSpec>true</strictSpec>
-						<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
+						<cleanupOutput>true</cleanupOutput>
 					</configuration>
 				</plugin>
 				<plugin>
