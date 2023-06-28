@@ -87,6 +87,7 @@
 
 		<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
+		<maven.release.allowTimestampedSnapshots>false</maven.release.allowTimestampedSnapshots>
 		<maven.release.goals>deploy</maven.release.goals>
 		<maven.release.localCheckout>true</maven.release.localCheckout>
 		<maven.release.preparationGoals>clean verify</maven.release.preparationGoals>
@@ -95,6 +96,14 @@
 		<maven.release.scmReleaseCommitComment>@{prefix} prepare release @{releaseLabel} [no ci]</maven.release.scmReleaseCommitComment>
 		<maven.release.signTag>true</maven.release.signTag>
 		<maven.release.tagNameFormat>@{project.version}</maven.release.tagNameFormat>
+
+		<openapi.generator.inputSpec></openapi.generator.inputSpec>
+		<openapi.generator.strictSpec>true</openapi.generator.strictSpec>
+		<openapi.generator.cleanupOutput>false</openapi.generator.cleanupOutput>
+		<openapi.style.inputFile>${openapi.generator.inputSpec}</openapi.style.inputFile>
+		<openapi.style.validateInfoLicense>true</openapi.style.validateInfoLicense>
+		<openapi.style.validateModelPropertiesDescription>true</openapi.style.validateModelPropertiesDescription>
+		<openapi.style.validateModelPropertiesExample>true</openapi.style.validateModelPropertiesExample>
 
 		<!-- ===================================================================== -->
 		<!-- ============================= Versions ============================== -->
@@ -591,6 +600,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.release}</version>
 					<configuration>
+						<allowTimestampedSnapshots>${maven.release.allowTimestampedSnapshots}</allowTimestampedSnapshots>
 						<goals>${maven.release.goals}</goals>
 						<localCheckout>${maven.release.localCheckout}</localCheckout>
 						<preparationGoals>${maven.release.preparationGoals}</preparationGoals>
@@ -730,7 +740,7 @@
 					<version>${version.org.codehaus.mojo.versions}</version>
 					<configuration>
 						<onlyUpgradable>true</onlyUpgradable>
-						<ignoredVersions>.*((\.|-)M|-alpha-|-beta-)[0-9]</ignoredVersions>
+						<ignoredVersions>.*((\.|-)M|-alpha-|-beta-)[0-9]+</ignoredVersions>
 						<ruleSet>
 							<rules>
 								<!-- maven api version is fixed -->
@@ -781,8 +791,9 @@
 					<artifactId>openapi-generator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.generator}</version>
 					<configuration>
-						<strictSpec>true</strictSpec>
-						<cleanupOutput>true</cleanupOutput>
+						<inputSpec>${openapi.generator.inputSpec}</inputSpec>
+						<strictSpec>${openapi.generator.strictSpec}</strictSpec>
+						<cleanupOutput>${openapi.generator.cleanupOutput}</cleanupOutput>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -790,6 +801,10 @@
 					<artifactId>openapi-style-validator-maven-plugin</artifactId>
 					<version>${version.org.openapitools.stylevalidator}</version>
 					<configuration>
+						<inputFile>${openapi.style.inputFile}</inputFile>
+						<validateInfoLicense>${openapi.style.validateInfoLicense}</validateInfoLicense>
+						<validateModelPropertiesDescription>${openapi.style.validateModelPropertiesDescription}</validateModelPropertiesDescription>
+						<validateModelPropertiesExample>${openapi.style.validateModelPropertiesExample}</validateModelPropertiesExample>
 						<!-- see https://opensource.zalando.com/restful-api-guidelines -->
 						<pathNamingConvention>HyphenCase</pathNamingConvention>
 						<parameterNamingConvention>UnderscoreCase</parameterNamingConvention>
