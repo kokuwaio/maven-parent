@@ -105,6 +105,10 @@
 		<openapi.style.validateModelPropertiesDescription>true</openapi.style.validateModelPropertiesDescription>
 		<openapi.style.validateModelPropertiesExample>true</openapi.style.validateModelPropertiesExample>
 
+		<invoker.cloneProjectsTo>${project.build.directory}/its</invoker.cloneProjectsTo>
+		<invoker.streamLogs>false</invoker.streamLogs>
+		<invoker.streamLogsOnFailures>true</invoker.streamLogsOnFailures>
+
 		<!-- ===================================================================== -->
 		<!-- ============================= Versions ============================== -->
 		<!-- ===================================================================== -->
@@ -322,11 +326,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-invoker-plugin</artifactId>
 					<version>${version.org.apache.maven.plugins.invoker}</version>
-					<configuration>
-						<cloneProjectsTo>${project.build.directory}/its</cloneProjectsTo>
-						<streamLogs>false</streamLogs>
-						<streamLogsOnFailures>true</streamLogsOnFailures>
-					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
