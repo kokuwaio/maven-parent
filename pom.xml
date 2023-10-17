@@ -154,7 +154,7 @@
 		<version.com.puppycrawl.tools.checkstyle>10.12.4</version.com.puppycrawl.tools.checkstyle>
 		<version.io.kokuwa.maven.parent>0.6.13-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>6.0.0</version.io.github.git-commit-id>
-		<version.org.jacoco>0.8.10</version.org.jacoco>
+		<version.org.jacoco>0.8.11</version.org.jacoco>
 		<version.org.openapitools.generator>7.0.1</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.10</version.org.openapitools.stylevalidator>
 		<version.org.sonatype.plugins.nexus-staging>1.6.13</version.org.sonatype.plugins.nexus-staging>
