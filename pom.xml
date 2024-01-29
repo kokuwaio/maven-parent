@@ -155,7 +155,7 @@
 
 		<version.com.github.spotbugs>4.8.3.0</version.com.github.spotbugs>
 		<version.com.google.cloud.tools.plugins.jib>3.4.0</version.com.google.cloud.tools.plugins.jib>
-		<version.com.puppycrawl.tools.checkstyle>10.12.7</version.com.puppycrawl.tools.checkstyle>
+		<version.com.puppycrawl.tools.checkstyle>10.13.0</version.com.puppycrawl.tools.checkstyle>
 		<version.io.kokuwa.maven.parent>0.6.15-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>7.0.0</version.io.github.git-commit-id>
 		<version.org.jacoco>0.8.11</version.org.jacoco>
