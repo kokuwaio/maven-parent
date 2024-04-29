@@ -124,7 +124,7 @@
 		<version.org.apache.maven.plugins.deploy>3.1.2</version.org.apache.maven.plugins.deploy>
 		<version.org.apache.maven.plugins.enforcer>3.4.1</version.org.apache.maven.plugins.enforcer>
 		<version.org.apache.maven.plugins.gpg>3.2.4</version.org.apache.maven.plugins.gpg>
-		<version.org.apache.maven.plugins.install>3.1.1</version.org.apache.maven.plugins.install>
+		<version.org.apache.maven.plugins.install>3.1.2</version.org.apache.maven.plugins.install>
 		<version.org.apache.maven.plugins.invoker>3.6.1</version.org.apache.maven.plugins.invoker>
 		<version.org.apache.maven.plugins.javadoc>3.6.3</version.org.apache.maven.plugins.javadoc>
 		<version.org.apache.maven.plugins.jar>3.4.1</version.org.apache.maven.plugins.jar>
