@@ -161,7 +161,7 @@
 		<version.io.kokuwa.maven.parent>0.6.16-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>8.0.2</version.io.github.git-commit-id>
 		<version.org.jacoco>0.8.12</version.org.jacoco>
-		<version.org.openapitools.generator>7.5.0</version.org.openapitools.generator>
+		<version.org.openapitools.generator>7.6.0</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.11</version.org.openapitools.stylevalidator>
 		<version.org.sonatype.plugins.nexus-staging>1.6.13</version.org.sonatype.plugins.nexus-staging>
 
