@@ -162,7 +162,7 @@
 		<version.io.github.git-commit-id>9.0.0</version.io.github.git-commit-id>
 		<version.io.fabric8.docker-maven-plugin>0.44.0</version.io.fabric8.docker-maven-plugin>
 		<version.org.jacoco>0.8.12</version.org.jacoco>
-		<version.org.openapitools.generator>7.6.0</version.org.openapitools.generator>
+		<version.org.openapitools.generator>7.7.0</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.11</version.org.openapitools.stylevalidator>
 		<version.org.sonatype.plugins.nexus-staging>1.7.0</version.org.sonatype.plugins.nexus-staging>
 
