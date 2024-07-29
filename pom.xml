@@ -160,7 +160,7 @@
 		<version.com.puppycrawl.tools.checkstyle>10.17.0</version.com.puppycrawl.tools.checkstyle>
 		<version.io.kokuwa.maven.parent>0.6.17-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>9.0.1</version.io.github.git-commit-id>
-		<version.io.fabric8.docker-maven-plugin>0.44.0</version.io.fabric8.docker-maven-plugin>
+		<version.io.fabric8.docker-maven-plugin>0.45.0</version.io.fabric8.docker-maven-plugin>
 		<version.org.jacoco>0.8.12</version.org.jacoco>
 		<version.org.openapitools.generator>7.7.0</version.org.openapitools.generator>
 		<version.org.openapitools.stylevalidator>1.11</version.org.openapitools.stylevalidator>
