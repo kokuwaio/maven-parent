@@ -128,7 +128,7 @@
 		<version.org.apache.maven.plugins.invoker>3.8.0</version.org.apache.maven.plugins.invoker>
 		<version.org.apache.maven.plugins.javadoc>3.8.0</version.org.apache.maven.plugins.javadoc>
 		<version.org.apache.maven.plugins.jar>3.4.2</version.org.apache.maven.plugins.jar>
-		<version.org.apache.maven.plugins.jxr>3.4.0</version.org.apache.maven.plugins.jxr>
+		<version.org.apache.maven.plugins.jxr>3.5.0</version.org.apache.maven.plugins.jxr>
 		<version.org.apache.maven.plugins.plugin>3.14.0</version.org.apache.maven.plugins.plugin>
 		<version.org.apache.maven.plugins.pmd>3.24.0</version.org.apache.maven.plugins.pmd>
 		<version.org.apache.maven.plugins.project-info-reports>3.7.0</version.org.apache.maven.plugins.project-info-reports>
