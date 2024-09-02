@@ -157,7 +157,7 @@
 		<version.com.github.spotbugs>4.8.6.2</version.com.github.spotbugs>
 		<version.com.google.code.replacer>1.5.3</version.com.google.code.replacer>
 		<version.com.google.cloud.tools.plugins.jib>3.4.3</version.com.google.cloud.tools.plugins.jib>
-		<version.com.puppycrawl.tools.checkstyle>10.18.0</version.com.puppycrawl.tools.checkstyle>
+		<version.com.puppycrawl.tools.checkstyle>10.18.1</version.com.puppycrawl.tools.checkstyle>
 		<version.io.kokuwa.maven.parent>0.6.17-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>9.0.1</version.io.github.git-commit-id>
 		<version.io.fabric8.docker-maven-plugin>0.45.0</version.io.fabric8.docker-maven-plugin>
