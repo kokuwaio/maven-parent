@@ -4,7 +4,7 @@
 
 	<groupId>io.kokuwa.maven</groupId>
 	<artifactId>maven-parent</artifactId>
-	<version>0.6.17</version>
+	<version>0.6.18-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Maven Parent</name>
@@ -39,7 +39,7 @@
 		<url>https://github.com/kokuwaio/maven-parent</url>
 		<connection>scm:git:https://github.com/kokuwaio/maven-parent.git</connection>
 		<developerConnection>scm:git:https://github.com/kokuwaio/maven-parent.git</developerConnection>
-		<tag>0.6.17</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>github</system>
@@ -158,7 +158,7 @@
 		<version.com.google.code.replacer>1.5.3</version.com.google.code.replacer>
 		<version.com.google.cloud.tools.plugins.jib>3.4.3</version.com.google.cloud.tools.plugins.jib>
 		<version.com.puppycrawl.tools.checkstyle>10.18.1</version.com.puppycrawl.tools.checkstyle>
-		<version.io.kokuwa.maven.parent>0.6.17</version.io.kokuwa.maven.parent>
+		<version.io.kokuwa.maven.parent>0.6.18-SNAPSHOT</version.io.kokuwa.maven.parent>
 		<version.io.github.git-commit-id>9.0.1</version.io.github.git-commit-id>
 		<version.io.fabric8.docker-maven-plugin>0.45.0</version.io.fabric8.docker-maven-plugin>
 		<version.org.jacoco>0.8.12</version.org.jacoco>
