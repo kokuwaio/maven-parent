@@ -169,7 +169,7 @@
 		<!-- maven plugin related -->
 
 		<version.org.apache.maven.plugin>3.2.5</version.org.apache.maven.plugin>
-		<version.org.codehaus.plexus.dispatcher>4.0.3</version.org.codehaus.plexus.dispatcher>
+		<version.org.codehaus.plexus.dispatcher>4.1.0</version.org.codehaus.plexus.dispatcher>
 		<version.org.eclipse.sisu>0.3.5</version.org.eclipse.sisu>
 
 	</properties>
