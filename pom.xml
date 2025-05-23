@@ -159,7 +159,7 @@
 		<version.com.google.cloud.tools.plugins.jib>3.4.5</version.com.google.cloud.tools.plugins.jib>
 		<version.com.puppycrawl.tools.checkstyle>10.24.0</version.com.puppycrawl.tools.checkstyle>
 		<version.io.kokuwa.maven.parent>0.6.19-SNAPSHOT</version.io.kokuwa.maven.parent>
-		<version.io.github.git-commit-id>9.0.1</version.io.github.git-commit-id>
+		<version.io.github.git-commit-id>9.0.2</version.io.github.git-commit-id>
 		<version.io.fabric8.docker-maven-plugin>0.46.0</version.io.fabric8.docker-maven-plugin>
 		<version.org.jacoco>0.8.13</version.org.jacoco>
 		<version.org.openapitools.generator>7.13.0</version.org.openapitools.generator>
